@@ -10,15 +10,12 @@ module.exports = {
   context: __dirname,
   entry: [ '@babel/polyfill', './src/index.js' ],
   output: {
-    path: path.join(__dirname, 'out'),
+    path: path.join(__dirname, 'docs'),
     filename: 'index.js',
     publicPath: '/', 
   },
   devtool: isDebug ? 'source-map' : false,
   mode: isDebug ? 'development' : 'production',
-  resolve: {
-    // modules: [ './', path.resolve(__dirname, 'src'), 'node_modules' ], 
-  }, 
   module: {
     rules: [
       {
