@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Track to CC</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container-fluid">
+      <h1 class="mt-3">Track to CC</h1>
+      <p>Tool for converting raw track data to CC information. </p>
+      <h2>Examples</h2>
+      <ul>
+        <li>
+          <strong>Track 1 &amp; 2 Data</strong>
+          <code>%B1234123412341234^CardUser/John^030510100000019301000000877000000?;1234123412341234=0305101193010877?</code>
+        </li>
+        <li>
+          <strong>Track 1 Data</strong>
+          <code>B1234123412341234^CardUser/John^030510100000019301000000877000000?</code>
+        </li>
+        <li>
+          <strong>Track 2 Data</strong>
+          <code>1234123412341234=0305101193010877?</code>
+        </li>
+      </ul>
+      <h2>Input</h2>
+      <div class="form-group">
+        <textarea id="input" class="form-control" cols="75" rows="10"></textarea>
+        <br />
+        <button id="convert" type="button" class="btn btn-primary">Convert</button>
+      </div>
+      <h2>Output</h2>
+      <textarea id="output" class="form-control mb-3" cols="75" rows="10"></textarea>
+    </div>
+  </body>
+</html>
