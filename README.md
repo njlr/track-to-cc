@@ -19,5 +19,5 @@ yarn webpack-dev-server
 Create a build:
 
 ```
-yarn build
+NODE_ENV=production yarn build 
 ```
