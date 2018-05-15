@@ -11909,10 +11909,30 @@ var _trackParser = _interopRequireDefault(__webpack_require__(/*! ./track-parser
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var input = document.getElementById('input');
-var output = document.getElementById('output');
+var outputCsv = document.getElementById('output-csv');
+var outputFull = document.getElementById('output-full');
 
 var convert = function convert() {
-  var parsedData = input.value.split(/[\s]+/).map(function (x) {
+  var csvData = input.value.split(/[\s]+/).map(function (x) {
+    return x.trim();
+  }).filter(function (x) {
+    return x.length > 0;
+  }).map(function (x) {
+    try {
+      var _ref = new _trackParser.default(x),
+          _ref$account = _ref.account,
+          account = _ref$account === void 0 ? '' : _ref$account,
+          _ref$expMonth = _ref.expMonth,
+          expMonth = _ref$expMonth === void 0 ? '' : _ref$expMonth,
+          _ref$expYear = _ref.expYear,
+          expYear = _ref$expYear === void 0 ? '' : _ref$expYear;
+
+      return [x, account, expMonth + '/' + expYear].join(',');
+    } catch (error) {
+      return 'INVALID';
+    }
+  });
+  var fullData = input.value.split(/[\s]+/).map(function (x) {
     return x.trim();
   }).filter(function (x) {
     return x.length > 0;
@@ -11923,7 +11943,8 @@ var convert = function convert() {
       return 'INVALID';
     }
   });
-  output.value = parsedData.join('\n\n');
+  outputCsv.value = 'trackData,creditCardNumber,creditCardExpiry\n' + csvData.join('\n');
+  outputFull.value = fullData.join('\n\n');
 };
 
 document.getElementById('convert').onclick = convert;
